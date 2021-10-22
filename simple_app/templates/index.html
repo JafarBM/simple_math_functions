@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+<form method="post" action="fibonacci">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <label>Fibonacci Input:</label>
+    <input name="input_number">
+    <input type="submit" value="get result">
+</form>
+<br>
+<form method="post" action="factorial">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <label>Factorial Input:</label>
+    <input name="input_number">
+    <input type="submit" value="get result">
+</form>
+<br>
+<form method="post" action="ackermann">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <label>Ackermann Input:</label>
+    <input name="first_input">
+    <input name="second_input">
+    <input type="submit" value="get result">
+</form>
+
+</body>
+</html>
