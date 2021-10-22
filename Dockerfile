@@ -1,4 +1,6 @@
-FROM python3.7
+FROM python:3.7
+
+ENV TZ 'Asia/Tehran'
 
 RUN apt update && apt install -y ca-certificates && \
     echo $TZ > /etc/timezone && \
@@ -8,11 +10,9 @@ RUN apt update && apt install -y ca-certificates && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean
 
-# Maybe you will need to reconfigure the timezone as well:
-ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime
-dpkg-reconfigure -f noninteractive tzdata
-
 ADD . .
+
+RUN make dependencies
 
 EXPOSE 8080:8080
 

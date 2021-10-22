@@ -11,10 +11,10 @@ dependencies:
 	pip install -r requirements.txt
 
 test:
-	TEST_RUNNING=1 python3 -m pytest --disable-warnings
+	python3 -m pytest --disable-warnings
 
 coverage:
-	TEST_RUNNING=1 coverage run -m pytest && coverage report
+	coverage run -m pytest --disable-warnings && coverage report
 
 docker:
 	$(DOCKER) build -t $(IMAGE_NAME):$(IMAGE_VERSION) .
