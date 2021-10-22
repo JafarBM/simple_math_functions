@@ -5,7 +5,7 @@ INVALID_ARGUMENT_ERROR_CODE = 400
 NON_POSITIVE_INPUT_VALUE_ERROR_MESSAGE = "Input should be positive integer!"
 NON_INTEGER_INPUT_VALUE_ERROR_MESSAGE = "Input should be an integer!"
 ELEMENT_NUMBER_REQUIRED_ERROR_MESSAGE = "Input is required!"
-MAX_RECURSION_DEPTH_ERROR_MESSAGE = "Stack overflow, recursion depth exceeded!"
+MAX_RECURSION_DEPTH_ERROR_MESSAGE = "Stack overflow, recursion depth exceeded! Please try with smaller values."
 MAXIMUM_SUPPORTED_OUTPUT_VALUE_EXCEEDED = "Output value is too large! please try with smaller inputs!"
 
 FIBONACCI_SUCCESS_RESULT_TEXT = "The {}th element of Fibonacci series is {}."
