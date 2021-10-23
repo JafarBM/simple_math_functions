@@ -8,7 +8,7 @@ RUN apt update && apt install -y ca-certificates && \
     rm /etc/localtime && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
-    apt-get clean
+    apt clean
 
 ADD . .
 
@@ -16,4 +16,4 @@ RUN make dependencies
 
 EXPOSE 8080:8080
 
-ENTRYPOINT ["sh deploy.sh"]
+ENTRYPOINT ["./deploy.sh"]

@@ -7,7 +7,7 @@ from simple_app.consts import (
 )
 
 
-class BaseInputValidator:
+class BaseAPIValidator:
     @classmethod
     def validate(cls, elements: Optional[List], **kwargs) -> Optional[str]:
         for element_number in elements:
@@ -37,13 +37,13 @@ class BaseInputValidator:
         return element >= 0
 
 
-class FibonacciInputValidator(BaseInputValidator):
+class FibonacciAPIValidator(BaseAPIValidator):
     pass
 
 
-class FactorialInputValidator(BaseInputValidator):
+class FactorialAPIValidator(BaseAPIValidator):
     pass
 
 
-class AckermannInputValidator(BaseInputValidator):
-        pass
+class AckermannAPIValidator(BaseAPIValidator):
+    pass

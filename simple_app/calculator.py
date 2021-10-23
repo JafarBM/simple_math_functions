@@ -10,9 +10,9 @@ from simple_app.consts import (
     INVALID_ARGUMENT_ERROR_CODE,
     MAXIMUM_SUPPORTED_OUTPUT_VALUE, MAXIMUM_SUPPORTED_OUTPUT_VALUE_EXCEEDED)
 from simple_app.validators import (
-    FibonacciInputValidator,
-    FactorialInputValidator,
-    AckermannInputValidator
+    FibonacciAPIValidator,
+    FactorialAPIValidator,
+    AckermannAPIValidator
 )
 
 bp = Blueprint('calculator', __name__)
@@ -27,7 +27,7 @@ def index():
 def fibonacci():
     input_number = request.form.get('input_number')
 
-    error = FibonacciInputValidator.validate([input_number])
+    error = FibonacciAPIValidator.validate([input_number])
     if error is not None:
         abort(INVALID_ARGUMENT_ERROR_CODE, error)
 
@@ -49,7 +49,7 @@ def fibonacci():
 def factorial():
     input_number = request.form.get('input_number')
 
-    error = FactorialInputValidator.validate([input_number])
+    error = FactorialAPIValidator.validate([input_number])
     if error is not None:
         abort(INVALID_ARGUMENT_ERROR_CODE, error)
 
@@ -71,7 +71,7 @@ def ackermann():
     first_input = request.form.get('first_input')
     second_input = request.form.get('second_input')
 
-    error = AckermannInputValidator.validate([first_input, second_input])
+    error = AckermannAPIValidator.validate([first_input, second_input])
     if error is not None:
         abort(INVALID_ARGUMENT_ERROR_CODE, error)
 

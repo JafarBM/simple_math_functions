@@ -7,7 +7,6 @@ help:
 	@echo "  dev-deploy           to deploy on development environment"
 
 dependencies:
-	pip install --upgrade pip
 	pip install -r requirements.txt
 
 test:
@@ -20,14 +19,14 @@ docker:
 	$(DOCKER) build -t $(IMAGE_NAME):$(IMAGE_VERSION) .
 
 dev-deploy:
-	$(DOCKER) up $(IMAGE_NAME):$(IMAGE_VERSION)
+	$(DOCKER) run -p 8080:8080 $(IMAGE_NAME):$(IMAGE_VERSION)
 
 .PHONY: help deploy
 
 ## Commons Vars ##########################################################
 GIT ?= git
 DOCKER ?= docker
-COMMIT := $(shell $(GIT) rev-parse HEAD)
+COMMIT := $(shell $(GIT) rev-parse --short HEAD)
 VERSION ?= $(shell $(GIT) describe --tag 2> /dev/null || echo "$(COMMIT)")
 IMAGE_VERSION ?= $(VERSION)
 IMAGE_NAME ?= calculator_developoment
